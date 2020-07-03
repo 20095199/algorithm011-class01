@@ -29,6 +29,19 @@ class Solution:
             array[ord(i)-97] -= 1
         return not any(array)
 
+    def is_anagram3(s:str, t:str)->bool:
+        if len(s) != len(t):
+            return False
+        d = {}
+        for i in range(len(s)):
+            d[s[i]] = d.get(s[i], 0) + 1
+            d[t[i]] = d.get(t[i], 0) - 1
+        for k in d:
+            if d[k] < 0:
+                return False
+        return True
+
+
 
 
 
